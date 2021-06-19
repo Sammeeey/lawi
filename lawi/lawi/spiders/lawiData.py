@@ -32,6 +32,11 @@ class LawidataSpider(scrapy.Spider):
 #                               + betrieb.css('.betriebe tbody tr td[data-title^=Betrieb] br[0]::text').get(),    #pseudocode für Betriebsort
 #                    'Telefonnummer': betrieb.css('.betriebe tbody tr td[data-title^=Betrieb] br[2]::text').get(),   #pseudocode
 #                    'Mobil': betrieb.css('.betriebe tbody tr td[data-title^=Betrieb] br[4]::text').get() #pseudocode
+                    
+                    # möglicher Lösungsansatz für Extraktion von Straße, Ort & Telefonnummern:
+                        # Text zwischen <br> mithilfe von regular expressions aus betriebsName filtern, gruppieren und in Variablen schreiben
+                        # in diesem Sinne auch genaue Extraktion von Mobil bzw. Telefon möglich - je nachdem was vorhanden                    
+                    
                     'E-Mail': betrieb.css('td[data-title^=Betrieb] a::attr(href)').get(),
                     'Betriebszweige': betrieb.css('td[data-title^=Betriebszweige]::text').get()
                     }
