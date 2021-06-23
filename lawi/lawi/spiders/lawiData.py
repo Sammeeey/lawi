@@ -28,6 +28,7 @@ class LawidataSpider(scrapy.Spider):
             if 'Feldgemüse' in betriebsZweige:
                 yield {
                     'Betriebsname': betrieb.css('td[data-title^=Betrieb]::text').get(),
+                    'Kontaktdaten': betrieb.css('td[data-title^=Betrieb]').get(),
 #                    'Adresse': betrieb.css('.betriebe tbody tr td[data-title^=Betrieb] br[1]::text').get()  #pseudocode für Betriebsstraße
 #                               + betrieb.css('.betriebe tbody tr td[data-title^=Betrieb] br[0]::text').get(),    #pseudocode für Betriebsort
 #                    'Telefonnummer': betrieb.css('.betriebe tbody tr td[data-title^=Betrieb] br[2]::text').get(),   #pseudocode
